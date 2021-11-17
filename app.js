@@ -1,0 +1,1 @@
+console.log('Oui, mon fichier JS a bien été "inclu"');
