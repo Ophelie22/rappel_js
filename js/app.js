@@ -53,9 +53,11 @@ let app = {
         let newLiElement = document.createElement('li');
         // Dans ce <li>, on ajoute le texte (propriété textContent)
         newLiElement.textContent = label + ' : ' + amount;
+
         // L'élément <li> est créé et rempli, mais n'existe pas encore dans le DOM
         // Donc on s'occupe de l'ajouter comme balise "enfant" du <ul> récupéré plus haut
         ulElement.appendChild(newLiElement);
+        // si j'avais fais comme ça ulElement.innerHTML = "<li>" + label + ' : ' + amount + "</li>"; j'eccraserai les autres li "
     }
 };
 
