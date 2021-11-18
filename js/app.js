@@ -72,6 +72,35 @@ let app = {
             "label": label,
             "amount": amount
         };
+        // Puis on ajoute le tableau associatif dans le tableau, 
+        //PUSH :cala va ns permettre un nvel evenement a la fin du tableau
+        app.movements.push(movementInfos);
+
+        // Enfin, on délègue à une autre méthode le calcul du solde
+        app.displayBalance();
+    },
+    // Méthode permettant d'afficher le solde à partir du tableau app.movements
+    displayBalance: function() {
+        // On initialise la somme
+        let total = 0;
+
+        // Si besoin de debugger/voir le contenu du tableau
+        console.log(app.movements);
+
+        // On parcourt le tableau
+        // les tableaux ont un attribut ".length" fournissant le nombre d'éléments
+            // --- On veut vider les input pour la prochaine saisie (UX) ---
+        // La propriété "value" (pour l'attribut du même nom) est accessible en écriture
+        firstInputElement.value = '';
+        secondInputElement.value = '';
+
+        // --- On veut ajouter dans le tableau app.movements ---
+        // On prépare les données à ajouter
+        // Il a 2 informations => tableau associatif (ou objet)
+        let movementInfos = {
+            "label": label,
+            "amount": amount
+        };
         // Puis on ajoute le tableau associatif dans le tableau
         app.movements.push(movementInfos);
 
@@ -97,6 +126,14 @@ let app = {
         document.getElementById('balance').textContent = total;
     }
 };
+        for (let i=0; i < app.movements.length; i++) {
+            total += app.movements[i]["amount"];
+        }
+
+        // Enfin, on change la valeur de la div dans le DOM
+        // ici, on enchaine les méthodes, sans passer par des variables intermédiaires
+        document.getElementById('balance').textContent = total;
+
 
 // Mais pour l'instant, on a seulement déclaré l'objet app avec une méthode init
 // Il faut appeler cette méthode pour qu'elle s'exécute
