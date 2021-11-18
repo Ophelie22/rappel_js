@@ -11,7 +11,7 @@ let app = {
     init: function() {
         // Et un console log pour être certain que notre méthode a bien été appelée
         console.log('la méthode init de l\'objet app a bien été appelée');
-        
+
             // On met en place les évènements au chargement de la page
         // On récupère l'objet représentant l'élément <form id="addMovement"></form>
         let formElement = document.getElementById('addMovement');
@@ -23,8 +23,10 @@ let app = {
     // Déclaration de la méthode appelée suite à l'ajout d'un mouvement
     // evt est l'objet Event fourni par JavaScript en argument de toute fonction de callback
     handleAddMovementSubmit: function(evt) {
+        //console.log('handleAdddMovementSubmit');
         // Normalement, le navigateur envoie les données du formulaire dans une nouvelle requête HTTP (GET ou POST)
-        // mais on ne veut pas cela, on veut rester sur cette page, et empêcher d'aller sur une autre page
+        // mais on ne veut pas cela, on veut rester sur cette page, et empêcher d'aller sur une autre page.
+        //on empeche le rechargement de page par defaut
         evt.preventDefault();
 
         // On peut récupérer l'élément sur lequel a eu lieu l'évènement
